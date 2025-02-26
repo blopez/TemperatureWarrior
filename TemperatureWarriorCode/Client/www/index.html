@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Temperature Warrior</title>
+
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <!-- STYLES -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- SCRIPTS -->
+    <script src="index.js"></script>
+    <script src="websocket.js"></script>
+    <script src="chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+    <h1>Temperature Warrior</h1>
+    
+    <div class="settings">
+        <h2>Configuración</h2>
+        <div class="server-settings">
+            <h3>Conexión <span class="connection-success hide">Establecida ✓</span></h3>
+            <div class="connect-field">
+                <input type="text" name="ip" placeholder="IP del servidor" id="ip">
+                <button id="server-connect">Conectar</button>
+            </div>
+            <div class="messages"></div>
+        </div>
+        <div class="round-settings">
+            <h3>Ajustes de Ronda</h3>
+            <div class="ranges-container">
+                <div id="ranges"></div>
+                <div class="ranges-buttons">
+                    <button id="add-range" onclick="add_range()">Añadir Rango</button>
+                    <button id="rmv-range" onclick="remove_range()">Quitar Rango</button>
+                </div>
+            </div>
+            <div class="globals">
+                <button id="send-round" disabled>Enviar Ronda</button>
+
+                <div class="rate-field">
+                    <label for="rate">Tasa de Refresco</label>
+                    <input type="number" name="rate" id="rate" value="1000" min="10" step="10">
+                </div>
+                <button id="start-round" disabled>Empezar Ronda</button>
+                <button id="shutdown" disabled>Shutdown</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="feedback-container">
+            <div class="header">
+                <div class="round-status">
+                    Round Status: <span id="round-status" class="unset">Unset</span>
+                </div>
+                <button id="test-sensor" disabled>Test Sensor</button>
+            </div>
+            <div class="graph-container">
+                <canvas id="chart"></canvas>
+            </div>
+    </div>
+</body>
+
+</html>

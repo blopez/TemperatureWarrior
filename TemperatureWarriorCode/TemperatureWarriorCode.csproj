@@ -1,0 +1,27 @@
+﻿<Project Sdk="Meadow.Sdk/1.1.0">
+  <PropertyGroup>
+    <LangVersion>12</LangVersion>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+    <Nullable>enable</Nullable>
+    <OutputType>Library</OutputType>
+    <AssemblyName>App</AssemblyName>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Meadow.F7" Version="2.0.1.2" />
+    <PackageReference Include="Meadow.Foundation" Version="2.0.1.2" />
+    <PackageReference Include="Meadow.Foundation.Displays.TftSpi" Version="2.0.1.2" />
+    <PackageReference Include="Meadow.Foundation.Sensors.Location.Gnss.NmeaProcessor" Version="2.0.1.2" />
+    <PackageReference Include="System.Text.Json" Version="7.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="NETDuinoWar">
+      <HintPath>packages\NETDuinoWar\lib\netmf43\NETDuinoWar.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="meadow.config.yaml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+</Project>
